@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema(
   {
     EDD: { type: Date, required: true },
     RTA: { type: String, required: true },
+    ETA: { type: String, required: true, default: "00:00" },
     id: { type: String, unique: true, required: true },
     lastLocation: {
       lat: { type: Number },

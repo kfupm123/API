@@ -191,3 +191,18 @@ exports.updatePackageRTA = async (req, res) => {
     }
   });
 };
+exports.updatePackageETA = async (req, res) => {
+  const { id } = req.params;
+  const { ETA } = req.body;
+  Package.findOneAndUpdate({ id }, { ETA: ETA }, (err, pkg) => {
+    if (err) {
+      res.status(400).json({
+        err,
+      });
+    } else {
+      res.status(204).json({
+        message: "ETA updated Successfully.",
+      });
+    }
+  });
+};
